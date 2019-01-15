@@ -282,7 +282,7 @@ function install_redis(){
   mk_path
   nodes_conf
   sentinels_conf
-  poweron_start
+  # poweron_start
   echo "end install redis..."
 }
 

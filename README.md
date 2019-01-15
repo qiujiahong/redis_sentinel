@@ -1,27 +1,33 @@
 # redis sentinel
 
-本项目在单台电脑部署redis哨兵
+本项目在单台电脑部署redis哨兵,部署方式为1哨兵，1主，2从模式。
 
-## 编译执行
+
+## 执行
+
+* 后台执行
 
 ```
-docker build -t qiujiahong/redis_sen ./
-docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 -p 26379:26379 qiujiahong/redis_sen 
+docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 \
+          -p 26379:26379 qiujiahong/redis_sen
 ```
 
-## 上传到docer hub
+* 后台执行,指定master ip 
 
-* 上传
-
-```bash
-# 使用你的账户登陆dockerhub
-docker login                           
-docker push qiujiahong/redis_sen    
+```
+docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 \
+          -p 26379:26379 \
+          -e MASTER_IP=192.168.7.77 qiujiahong/redis_sen
 ```
 
-* 标记版本，上传
+## 参数
 
-```bash
-docker tag qiujiahong/redis_sen qiujiahong/redis_sen:v1
-docker push qiujiahong/redis_sen:v1
-```
+* MASTER_IP  主机ip地址 默认值为127.0.0.1
+
+
+## 端口
+
+* 6379   master 端口
+* 6479   slave  端口
+* 6579   slave  端口
+* 26379  sentinel端口
