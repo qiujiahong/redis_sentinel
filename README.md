@@ -9,7 +9,7 @@
 
 ```
 docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 \
-          -p 26379:26379 qiujiahong/redis_sen
+          -p 26379:26379 qiujiahong/redis_sen:latest
 ```
 
 * 后台执行,指定master ip 
@@ -17,7 +17,7 @@ docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 \
 ```
 docker run -d -p 6379:6379 -p 6479:6479 -p 6579:6579 \
           -p 26379:26379 \
-          -e MASTER_IP=192.168.7.77 qiujiahong/redis_sen
+          -e MASTER_IP=192.168.7.77 qiujiahong/redis_sen:latest
 ```
 
 ## 参数

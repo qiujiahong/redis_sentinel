@@ -1,4 +1,9 @@
 #!/bin/bash
+
+sed -i 's/^slaveof.*/slaveof '${MASTER_IP-127.0.0.1}' 6379/g' /etc/redis/6479.conf 
+sed -i 's/^slaveof.*/slaveof '${MASTER_IP-127.0.0.1}' 6379/g' /etc/redis/6579.conf 
+sed -i 's/^sentinel monitor mymaster.*/sentinel monitor mymaster '${MASTER_IP-127.0.0.1}' 6379 1/g' /etc/redis/26379.conf 
+
 echo "start redis server..........................."
 echo "start master......"
 redis-server /etc/redis/6379.conf
