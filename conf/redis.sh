@@ -37,8 +37,9 @@ function help(){
   echo "             conf     ...... generate conf file in current path"
   echo ""
   echo "           [examples]"
-  echo "             ./redis.sh install     # install redis by the default command"
-  echo "             ./redis.sh remove      # remove redis"
+  echo "             ./redis.sh install                 # install redis by the default command"
+  echo "             ./redis.sh --download  install     # download and install redis by the default command"
+  echo "             ./redis.sh remove                  # remove redis"
   return ;
 }
 
